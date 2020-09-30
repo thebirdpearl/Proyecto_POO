@@ -6,24 +6,24 @@ import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
+import userinput.vista;
+
 class familia{
 
     public familia(){
     }
 
     public void ejercicios(){
-        //definir las variables que tomaran el valor de las letras de respuesta
+        //definir las variables de las respuestas
         String a = "";
         String c = "";
         String b = "";
-        //Variables que tomarán el valor de la prgunta y respuesta correspondiente
         String pregunta = "";
         String respuesta = "";
         int puntaje = 0;
         int cantpre = 0;
 
         //INSTANCIAR EL VISUAL
-        vista vista = new vista();
         Random rand = new Random();
 
         //Seguir desplegando ejercicios hasta que el usuario indique lo contrario
@@ -37,7 +37,7 @@ class familia{
             //Crear un array por idioma que contiene las palabras de tipo saludos
             ArrayList <String> esp = new ArrayList<String>();
             ArrayList <String> kaq = new ArrayList<String>();
-
+            
             //Agregar palabras al "diccionario" de español
             esp.add("Familia");
             esp.add("Madre");
@@ -51,23 +51,23 @@ class familia{
             kaq.add("Tata´aj");
             kaq.add("Alk´walaxela");
             kaq.add("mam");
-
+            
             //Definir la pregunta que se desplegará y la palabra que corresponde a la respuesta correcta
             respuesta = kaq.get(random0);
-
+            
             kaq.remove(random0);
             esp.remove(random0);
             //Definir la opción a desplegar por letra
             //Definiendo el valor que tomará la letra a
-
+            
 
             int x = 0;
             int xx = 0;
             int xz = 0;
             int xw = 0;
-
+            
             while(x != 0){
-
+                
                 randombot = rand.nextInt(3);
                 random1 = rand.nextInt(5);
 
@@ -83,7 +83,7 @@ class familia{
                     a = esp.get(3);
                 }
                 }
-
+                
                 //Definiendo el valor que tomará la letra b
                 if(randombot == 2){
                 if (random1 == 1){
@@ -94,7 +94,7 @@ class familia{
                     b = esp.get(2);
                 }else if (random1 == 4){
                     b = esp.get(3);
-                }
+                } 
                 }
 
                 //Definiendo el valor que tomará la letra c
@@ -109,7 +109,7 @@ class familia{
                     c = esp.get(3);
                 }
                 }
-
+                
             //Aqui miramos que todas las opciones tengan un valor y no va a salir hasta que lo tengan
                 if(a != ""){
                 xx++;
@@ -138,22 +138,22 @@ class familia{
             }
             //pos aqui la pregunta y la juntamos toda
             pregunta = "Traduzca la palabras " +esp.get(random0)+ "\n A)" +a+ "\n B" +b+ "\n C)" + c;
-
+            
             String larespuesta = vista.creapregunta(pregunta);
 
             //veriicamos la respuesta sea correcta o incorrecta, si es correcta se suma un punto y se imprime que es correcta de lo contrario no se le pone un punto
             cantpre++;
             if(a==respuesta && larespuesta==a){
-                vista.val(true,larespuesta);
+                vista.val(false, larespuesta, esp.get(random0), respuesta ); 
                 puntaje++;
             }else if(b==respuesta && larespuesta==b){
-                vista.val(true,larespuesta);
+                vista.val(false, larespuesta, esp.get(random0), respuesta ); 
                 puntaje++;
             }else if(c==respuesta && larespuesta==c){
-                vista.val(true,larespuesta);
+                vista.val(false, larespuesta, esp.get(random0), respuesta ); 
                 puntaje++;
             }else{
-                vista.val(false,larespuesta);
+                vista.val(false, larespuesta, esp.get(random0), respuesta ); 
             }
 
             //Aqui se le pregunta al usuario si desea continuar practicando o no
