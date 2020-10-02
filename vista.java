@@ -16,6 +16,7 @@ tionPane;
 public class vista
 {
 
+    traductor t = new traductor();
     //Imprime opcion de Menu principal
     public static void Pmenu(){
     
@@ -32,45 +33,24 @@ public class vista
     public static void Pmenu_tradctor(){
         System.out.println("Has ingresado a traductor");
         System.out.println("Escoge una opcion marcando el numero que le antecede");
-        System.out.println("1. K'iche - Espanol");
-        System.out.println("2. Espanol - K'iche");
+        System.out.println("1. Kaqchikel - Espanol *No disponible*");
+        System.out.println("2. Espanol - Kaqchikel");
         System.out.println("3. Cerrar Traductor\n\n");
     }
     
-    //Pregunta palabra en kiche
     
-    public static String Spalabra_kiche(){
-    
-        System.out.println("Ingrese la palabra en K'iche:");
-        String palab = scan.next();
-        
-        return palab;
+    public static void espanol_a_kaqchikel(String e)
+    {
+        if(t.checkesp(e))
+        {
+            System.out.println(t.eak);
+        }        
+        else
+        {
+            System.out.println("Palabra no registrada");
+        }
     }
     
-    //Regresa la palabra en español del diccionario
-    
-    public static void Ppalabra_espanol(String sele){
-        System.out.println("La palabra en espanol seria: " + sele);
-    }
-    
-    //Indica que la palabra no existe
-    
-    public static void Pno_existe(){
-        System.out.println("La palabra que ingreso no existe en nuestro registro, lo lamentamos\n");
-    }
-    
-    //Pregunta palabra en esapañol
-    
-    public static String Spalabra_espanol(){
-        System.out.println("Ingrese la palabra en espanol:");
-        String palab = scan.next();
-        return palab;
-    }
-    
-    //Indica la palabra en kiche
-    public static void Ppalabra_kiche(String sele){
-        System.out.println("La palabra en K'iche seria: " + sele);
-    }
     
     //Despedida traductor
     public static void Pdespedida_traductor(){
