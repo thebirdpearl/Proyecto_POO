@@ -1,42 +1,44 @@
-/*******************************************************************************************************
-Vista.java
-Autor: Diego Perdomo, Ana Ramirez, Maria Fernanada Argueta, Jose Gonzalez, Carol Arevalo
-Última modificación: 29/09/20
-Practicar
-********************************************************************************************************/
+import userinput.vista;
 
-//clase que desgloza los diversos ejercicios a realizar
+class practicar{
 
-import java.util.Scanner;
+    public static String respuestag;
 
-public class practicar{
-  saludos sal = new saludos();
-  familia fam = new familia();
-  diario diar = new diario();
-
-  public practicar(){
-
-  }
-  //crear una variable del tipo de cada clase que corresponde a un tema de aprendizaje
-
-  //desde el driver se debe indicar el número que corresponde al tema escogido y del cual se desplegará el ejercicio a realizar
-  //Dentro de los ejercicio este no se detendra hasta el momento que el usuario desea salir del propio ejercicio
-  public void seleccion(int op){
-
-    if (op == 1){
-      sal.ejercicios();
-       //desplegar un ejercicio del tema saludos
-
-    }else if(op == 2){
-      fam.ejercicios();
-       //desplegar un ejercicio del tema familia
-
-
-    }else if(op == 3){
-      diar.ejercicios();
-      //diar.ejercicios(); //desplegar un ejercicio del tema vida diaria
-
+    public practicar(){
     }
+    
+    public String ejercitar(int num){
 
-  }
+        familia2 fam = new familia2();
+        saludos2 sal = new saludos2();
+        diario2 dia = new diario2();
+        String pregunta = "";
+
+        //SE SELECCIONA EL HACERLO CON FAMILIA
+        if(num == 1){
+
+            pregunta = fam.ejercicios();
+
+        } else if (num == 2){
+
+            pregunta = sal.ejercicios();
+
+        } else if(num == 3){
+
+            pregunta = dia.ejercicios();
+        }
+        return pregunta;
+    }
+    public boolean analisis(String a){
+
+        boolean respuesta = false;
+
+        if(a.equals(respuestag)){
+
+            respuesta = true;
+
+        }
+
+        return respuesta;
+    }
 }
